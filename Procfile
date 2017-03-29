@@ -1,1 +1,1 @@
-web: sh target/bin/firststruts
+web: sh target/bin/webapp
