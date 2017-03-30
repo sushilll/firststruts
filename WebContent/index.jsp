@@ -1,3 +1,5 @@
+<%@page import="java.net.URI"%>
+<%@page import="java.sql.DriverManager"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.Out"%>
 <%@page import="firststruts.Dao"%>
 <%@page import="java.sql.Connection"%>
@@ -9,5 +11,12 @@
 <s:submit value="save"></s:submit>
 </s:form>
 
-<%Connection con = Dao.getConnection(); %>
-<% out.println(con); %>
+<%
+URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+String username = dbUri.getUserInfo().split(":")[0];
+String password = dbUri.getUserInfo().split(":")[1];
+String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
+
+Connection con = DriverManager.getConnection(dbUrl, username, password); 
+out.println(con);%>
