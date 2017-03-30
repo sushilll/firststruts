@@ -9,5 +9,5 @@
 <s:submit value="save"></s:submit>
 </s:form>
 
-<%! Connection con = Dao.getConnection();%>
-<%= out.print(con) %>
+<%Connection con = Dao.getConnection(); %>
+<% out.println(con); %>
