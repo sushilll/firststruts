@@ -11,6 +11,7 @@ public class Dao {
 	    String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	    try {
 			con = DriverManager.getConnection(dbUrl);
+			System.out.println("method called");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
