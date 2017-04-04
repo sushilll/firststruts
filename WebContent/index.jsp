@@ -12,6 +12,7 @@
 </s:form>
 
 <%
+Class.forName("org.postgresql.Driver");
 URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
 String username = dbUri.getUserInfo().split(":")[0];
