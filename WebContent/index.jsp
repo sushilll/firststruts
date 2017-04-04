@@ -25,7 +25,8 @@ Connection con = DriverManager.getConnection(dbUrl, username, password);
 out.println(con);
 
 Statement st = con.createStatement();
-if(st.execute("create table users(username varchar(20), pwd varchar(20));")){
+//if(st.execute("create table users(username varchar(20), pwd varchar(20));")){
+	if(st.execute("insert into users values('sushil', 1234);")){
 	ResultSet rs = st.executeQuery("select * from users");
 	int i = 0;
 	while(rs.next()){
