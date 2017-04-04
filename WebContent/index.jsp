@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
 <%@page import="java.net.URI"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.Out"%>
@@ -20,4 +22,10 @@ String password = dbUri.getUserInfo().split(":")[1];
 String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
 
 Connection con = DriverManager.getConnection(dbUrl, username, password); 
-out.println(con);%>
+out.println(con);
+
+Statement st = con.createStatement();
+if(st.execute("create database UIS;")){
+	out.print("if");
+}
+%>
